@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Civic Eye - Smart City Solutions</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{line-height:1.6;color:#333;background:#f4f8fb;}
+
+/* Navbar */
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 80px;background:#ffffff;position:sticky;top:0;z-index:1000;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+header h1{color:#fb2d08;font-weight:700;letter-spacing:1px;}
+nav ul{display:flex;list-style:none;}
+nav ul li{margin:0 15px;}
+nav ul li a{text-decoration:none;color:#333;font-weight:500;transition:0.3s;}
+nav ul li a:hover{color:#0072ff;}
+.btn{padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:500;transition:0.3s;}
+.btn-primary{background:#0072ff;color:#fff;box-shadow:0 4px 12px rgba(0,114,255,0.3);}
+.btn-primary:hover{background:#005fcc;transform:translateY(-2px);}
+
+/* Hamburger Icon */
+.menu-toggle{font-size:28px;cursor:pointer;display:block;color:#0072ff;margin-left:20px;}
+.dropdown-menu{display:none;position:absolute;top:70px;right:80px;background:#fff;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.15);flex-direction:column;min-width:200px;z-index:2000;overflow:hidden;}
+.dropdown-menu a{padding:14px 20px;text-decoration:none;color:#333;font-weight:500;border-bottom:1px solid #eee;display:block;transition:0.3s;}
+.dropdown-menu a:hover{background:#f0f7ff;color:#0072ff;}
+.dropdown-menu a:last-child{border-bottom:none;}
+
+/* Hero Section */
+.hero{display:flex;justify-content:space-between;align-items:center;padding:80px;background:linear-gradient(135deg,#0072ff,#00c6ff);color:#fff;}
+.hero-text{max-width:50%;}
+.hero h2{font-size:48px;margin-bottom:20px;font-weight:700;line-height:1.2;}
+.hero p{font-size:18px;margin-bottom:25px;color:#f0f0f0;}
+.hero-buttons a{margin-right:15px;}
+.hero-image img{max-width:420px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.25);border:5px solid rgba(255,255,255,0.6);transition:0.4s;}
+.hero-image img:hover{transform:scale(1.05);}
+
+/* Features Section */
+.features{padding:80px;background:#ffffff;text-align:center;}
+.features h2{font-size:36px;margin-bottom:50px;color:#0072ff;}
+.feature-boxes{display:flex;justify-content:space-around;flex-wrap:wrap;gap:30px;}
+.feature-box{flex:1;min-width:250px;background:#fdfdfd;padding:30px;border-radius:15px;box-shadow:0 6px 18px rgba(0,0,0,0.08);transition:0.3s;}
+.feature-box:hover{transform:translateY(-8px);}
+.feature-box img{width:80px;margin-bottom:20px;}
+.feature-box h3{font-size:24px;color:#0072ff;margin-bottom:10px;}
+.feature-box p{color:#555;}
+
+/* Stats Section */
+.stats{display:flex;justify-content:center;gap:30px;padding:70px 80px;background:#f0f7ff;flex-wrap:wrap;}
+.stat-box{flex:1;text-align:center;padding:30px;border-radius:15px;background:#ffffff;box-shadow:0 6px 18px rgba(0,0,0,0.08);transition:0.3s;min-width:200px;}
+.stat-box:hover{transform:translateY(-8px);}
+.stat-box h3{font-size:32px;color:#0072ff;margin-bottom:10px;}
+.stat-box p{color:#555;font-weight:500;}
+
+/* Map Section */
+.map-section{padding:80px;text-align:center;background:#ffffff;}
+.map-section h2{color:#0072ff;font-size:36px;margin-bottom:30px;}
+
+/* Testimonials Section */
+.testimonials{padding:80px;background:#f0f7ff;text-align:center;}
+.testimonials h2{color:#0072ff;font-size:36px;margin-bottom:50px;}
+.testimonial-box{background:#ffffff;padding:30px;border-radius:15px;box-shadow:0 6px 18px rgba(0,0,0,0.08);margin:15px;display:inline-block;max-width:300px;vertical-align:top;}
+.testimonial-box p{color:#555;margin-bottom:10px;font-style:italic;}
+.testimonial-box h4{color:#0072ff;}
+
+/* CTA Section */
+.cta{text-align:center;padding:100px;background:linear-gradient(135deg,#0d1b2a,#1b263b);color:#fff;}
+.cta h2{font-size:36px;margin-bottom:20px;}
+.cta p{font-size:18px;margin-bottom:20px;color:#d6e4f0;}
+.cta a{margin:10px;}
+
+/* Footer */
+footer{background:#0b1726;color:#ccc;padding:50px 80px;display:flex;justify-content:space-between;flex-wrap:wrap;}
+footer h3{color:#fff;margin-bottom:15px;}
+footer ul{list-style:none;}
+footer ul li{margin-bottom:8px;}
+footer ul li a{text-decoration:none;color:#ccc;transition:0.3s;}
+footer ul li a:hover{color:#fff;}
+.footer-bottom{text-align:center;padding:15px;background:#08111b;color:#777;margin-top:20px;}
+
+/* Responsive */
+@media (max-width:768px){
+.hero{flex-direction:column;text-align:center;}
+.hero-text, .hero-image{max-width:100%;}
+.feature-boxes{flex-direction:column;align-items:center;}
+.stats{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<header>
+<h1>Civic Eye</h1>
+<nav>
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="report.html">Report Issue</a></li>
+<li><a href="track.html">Track Complaints</a></li>
+<li><a href="about.html">About Us</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<div class="dropdown-menu" id="dropdownMenu">
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+<a href="track.html">Track Complaints</a>
+<a href="profile.html">Profile</a>
+</div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-text">
+<h2 id="welcomeMessage">The Future of Smart Cities</h2>
+<p>“Civic Eye is an AI-powered platform that helps citizens report civic issues instantly and track their resolution. Together, we make our cities cleaner, safer, and smarter.”</p>
+<div class="hero-buttons">
+<a href="report.html" class="btn btn-primary">Report Now</a>
+<a href="track.html" class="btn" style="border:2px solid #fff;color:#fff;">Track Status</a>
+</div>
+</div>
+<div class="hero-image">
+<img src="bgimg.jpg" alt="Smart City">
+</div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+<h2>How Civic Eye Works</h2>
+<div class="feature-boxes">
+<div class="feature-box">
+<img src="report.png" alt="Report">
+<h3>Report Issues</h3>
+<p>Submit photos or descriptions of potholes, garbage, or other civic problems instantly.</p>
+</div>
+<div class="feature-box">
+<img src="AI.png" alt="AI Processing">
+<h3>AI Analysis</h3>
+<p>Our AI classifies, prioritizes, and forwards issues to the appropriate authorities.</p>
+</div>
+<div class="feature-box">
+<img src="track.png" alt="Track">
+<h3>Track Progress</h3>
+<p>Receive live updates and track resolution status until the issue is fixed.</p>
+</div>
+</div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+<div class="stat-box">
+<h3>500+</h3>
+<p>Issues Resolved</p>
+</div>
+<div class="stat-box">
+<h3>70%</h3>
+<p>Faster Response</p>
+</div>
+<div class="stat-box">
+<h3>95%</h3>
+<p>User Satisfaction</p>
+</div>
+<div class="stat-box">
+<h3>24/7</h3>
+<p>Smart Monitoring</p>
+</div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section">
+<h2>Real-time Issue Map</h2>
+<div id="map" style="width:100%;max-width:800px;height:400px;border-radius:15px;margin:0 auto;"></div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+<h2>What Our Citizens Say</h2>
+<div class="testimonial-box">
+<p>"Civic Eye made it so easy to report potholes. Within 24 hours, it was resolved!"</p>
+<h4>- Rajesh K.</h4>
+</div>
+<div class="testimonial-box">
+<p>"Thanks to Civic Eye, garbage issues in our area are reported and cleaned faster than ever."</p>
+<h4>- Sneha M.</h4>
+</div>
+<div class="testimonial-box">
+<p>"The tracking feature keeps me updated on all civic issues I report. Amazing platform!"</p>
+<h4>- Amit P.</h4>
+</div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+<h2>Ready to Transform Your City?</h2>
+<p>Join thousands of citizens already reporting issues and making their city smarter.</p><br>
+<a href="report.html" class="btn btn-primary">Report an Issue</a>
+<a href="contact.html" class="btn" style="border:2px solid #fff;color:#fff;">Contact Support</a>
+</section>
+
+<!-- Footer -->
+<footer>
+<div>
+<h3>Civic Eye</h3>
+<p>AI-based civic issue detection and grievance redressal system for smarter cities.</p>
+</div>
+<div>
+<h3>Solutions</h3>
+<ul>
+<li><a href="./solution.html">Pothole Detection</a></li>
+<li><a href="./solution.html">Garbage Monitoring</a></li>
+<li><a href="./solution.html">Water Leak Alerts</a></li>
+<li><a href="./solution.html">Complaint Tracking</a></li>
+
+</ul>
+</div>
+<div>
+<h3>Resources</h3>
+<ul>
+<li><a href="./resourse.html">Blog</a></li>
+<li><a href="./resourse.html">Case Studies</a></li>
+<li><a href="./resourse.html">FAQs</a></li>
+<li><a href="./resourse.html">Help Center</a></li>
+
+</ul>
+</div>
+<div>
+<h3>Contact</h3>
+<ul>
+<li>📍 Pune, India</li>
+<li>📞 +91 9876543210</li>
+<li>✉ support@civiceye.com</li>
+<li><a href="./contact.html">Contact Form</a></li>
+</ul>
+</div>
+</footer>
+<div class="footer-bottom">
+© 2025 Civic Eye. All rights reserved.
+</div>
+
+
+<!-- Scripts -->
+<script>
+function toggleMenu(){
+  const menu = document.getElementById("dropdownMenu");
+  menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+
+// Personalized welcome message
+const username = localStorage.getItem("username");
+if(username){
+  document.getElementById("welcomeMessage").textContent = `Welcome, ${username}!`;
+}
+
+// Initialize Google Map
+function initMap() {
+    const cityCenter = { lat: 18.5204, lng: 73.8567 }; // Pune
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 12,
+        center: cityCenter
+    });
+
+    const issues = [
+        {lat:18.521, lng:73.856, title:"Pothole reported"},
+        {lat:18.522, lng:73.855, title:"Garbage Dump"},
+        {lat:18.523, lng:73.857, title:"Water Leak"}
+    ];
+
+    issues.forEach(issue => {
+        new google.maps.Marker({
+            position: {lat: issue.lat, lng: issue.lng},
+            map: map,
+            title: issue.title
+        });
+    });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpqD3VrOV_uR88LRodQ69am_3S0i9Qb64&callback=initMap" async defer></script>
+
+</body>
+</html>

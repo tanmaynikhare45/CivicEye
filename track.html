@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Complaints - Civic Eye</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #007BFF; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { margin: 0; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    nav a { color: white; text-decoration: none; }
+    nav a.active { font-weight: bold; text-decoration: underline; }
+    .menu-toggle { display: none; cursor: pointer; }
+    section { padding: 40px 20px; text-align: center; }
+    form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 40px auto; }
+    input { padding: 12px; border-radius: 8px; border: 1px solid #ccc; }
+    button { padding: 12px; border: none; border-radius: 8px; background: #007BFF; color: white; font-size: 16px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    .status-box { max-width: 600px; margin: 40px auto; text-align: left; padding: 20px; border-radius: 10px; background: #f9f9f9; display: none; }
+    .status-box h3 { color: #0072ff; margin-top: 0; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Civic Eye</h1>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="report.html">Report Issue</a></li>
+      <li><a href="track.html" class="active">Track Complaints</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section>
+  <h2>Track Your Complaint</h2>
+  <form onsubmit="checkStatus(event)">
+    <input type="text" id="trackInput" placeholder="Enter Complaint ID or Email" required>
+    <button type="submit">Check Status</button>
+  </form>
+
+  <div id="statusResult" class="status-box">
+    <h3>Complaint Status</h3>
+    <ul>
+      <li><b>ID:</b> <span id="complaintId"></span></li>
+      <li><b>Issue:</b> <span id="complaintIssue"></span></li>
+      <li><b>Description:</b> <span id="complaintDesc"></span></li>
+      <li><b>Status:</b> <span id="complaintStatus"></span></li>
+      <li><b>Last Update:</b> <span id="complaintUpdate"></span></li>
+      <li><b>Estimated Resolution:</b> <span id="complaintResolution"></span></li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  function checkStatus(event) {
+    event.preventDefault();
+    const input = document.getElementById("trackInput").value.trim();
+    const complaints = JSON.parse(localStorage.getItem("complaints")) || {};
+    const resultBox = document.getElementById("statusResult");
+
+    if (complaints[input]) {
+      document.getElementById("complaintId").textContent = complaints[input].id;
+      document.getElementById("complaintIssue").textContent = complaints[input].issue;
+      document.getElementById("complaintDesc").textContent = complaints[input].description;
+      document.getElementById("complaintStatus").textContent = complaints[input].status;
+      document.getElementById("complaintUpdate").textContent = complaints[input].update;
+      document.getElementById("complaintResolution").textContent = complaints[input].resolution;
+      resultBox.style.display = "block";
+    } else {
+      resultBox.style.display = "block";
+      document.getElementById("complaintId").textContent = input;
+      document.getElementById("complaintIssue").textContent = "Unknown";
+      document.getElementById("complaintDesc").textContent = "-";
+      document.getElementById("complaintStatus").textContent = "Not Found ❌";
+      document.getElementById("complaintUpdate").textContent = "-";
+      document.getElementById("complaintResolution").textContent = "-";
+    }
+  }
+</script>
+
+</body>
+</html>
